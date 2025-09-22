@@ -1,0 +1,172 @@
+{
+  "nav": {
+    "products": "Produkte",
+    "dataForAi": "Daten für KI",
+    "pricing": "Preise",
+    "resources": "Ressourcen",
+    "docs": "Dokumentation"
+  },
+  "cta": {
+    "login": "Anmelden",
+    "start": "Kostenlos testen"
+  },
+  "hero": {
+    "title": "Wir entwickeln zuverlässige Software: Automatisierungstools, Backend-Services, Bots und CLI-Apps",
+    "subtitle": "Von der Idee bis zur Produktion: sauberer Code, Tests, CI/CD und klare Dokumentation. Bereit zum Skalieren.",
+    "estimate": "Presupuesto gratis",
+    "browse": "Ver ejemplos"
+  },
+  "services": {
+    "title": "Qué construimos",
+    "items": [
+      { "title": "Servicios backend y APIs", "desc": "REST/GraphQL, workers, schedulers, auth, pagos." },
+      { "title": "Automatización y bots", "desc": "Bots de Telegram/Discord, scraping, integraciones, webhooks." },
+      { "title": "Herramientas CLI y desktop", "desc": "Utilidades multiplataforma, empaquetado, auto-updates." },
+      { "title": "Pipelines de datos", "desc": "Trabajos ETL, colas, rate-limits, fiabilidad y monitoreo." },
+      { "title": "Pruebas y calidad", "desc": "Tests unitarios e integración, linting, type-safety, CI." },
+      { "title": "DevOps y entrega", "desc": "Docker, GitHub Actions, nube, entornos y rollbacks." }
+    ]
+  },
+  "tech": {
+    "title": "Technologie-Stack",
+    "subtitle": "Produktionsreife Services mit Fokus auf Stabilität, Tests und reproduzierbare Builds.",
+    "group": {
+      "languages": "Sprachen & Runtime",
+      "infrastructure": "Infrastruktur",
+      "data": "Daten & Integrationen",
+      "quality": "Qualität & DevOps"
+    }
+  },
+  "process": {
+    "title": "So arbeiten wir",
+    "subtitle": "Transparent und iterativ: abstimmen → bauen → deployen → betreuen.",
+    "step1": {
+      "title": "Discovery & Scoping",
+      "text": "Kurzer Call und Briefing: Ziele, Constraints, Integrationen, SLA. Wir skizzieren Umfang und Aufwand.",
+      "bullets": ["Anforderungen & APIs", "Architektur-Risiken", "Release-Plan"]
+    },
+    "step2": {
+      "title": "Architektur & Plan",
+      "text": "High-Level-Design: Module, Queues, Datenbanken, Deployment-Topologie. API-Verträge und Schemata fixieren.",
+      "bullets": ["Moduldiagramm", "DB/Cache-Schemata", "REST/gRPC-Verträge"]
+    },
+    "step3": {
+      "title": "Implementierung & Tests",
+      "text": "Kurze Iterationen: Feature → Unit- & Integrationstests → Review. Demo alle 1–2 Wochen.",
+      "bullets": ["Sauberer Code & Doku", "Automatisierte Tests", "Security/Linters"]
+    },
+    "step4": {
+      "title": "Deployment & Support",
+      "text": "CI/CD, Container, Observability (Logs/Metriken/Alerts). Übergabe-Doku und Prozesse.",
+      "bullets": ["Docker + CI/CD", "Monitoring & Alerts", "SLA / Rufbereitschaft"]
+    }
+  },
+  "use": {
+    "title": "Use Cases & Fallstudien",
+    "subtitle": "Bewährte Szenarien, die wir regelmäßig umsetzen — produktionsreif und erprobt.",
+    "items": [
+      {
+        "title": "Backend-Mikroservice für ein SaaS-MVP",
+        "text": "Robustes API mit Auth, Rate-Limits, Queues und Hintergrundjobs.",
+        "tags": ["API", "Queues", "PostgreSQL", "Docker"]
+      },
+      {
+        "title": "Automation-Tool für Operations",
+        "text": "Tabellen und manuelle Routinen durch ein stabiles CLI/Worker ersetzen, das Drittanbieter-Daten synchronisiert.",
+        "tags": ["CLI", "Schedulers", "Webhooks", "Retries"]
+      },
+      {
+        "title": "Chat/Telegram-Bot für Support",
+        "text": "FAQs, Bestellstatus und Benachrichtigungen. CRM/Payment-Integrationen.",
+        "tags": ["Bot", "Integrations", "Observability"]
+      },
+      {
+        "title": "Datenpipeline & ETL",
+        "text": "Datenaufnahme, Normalisierung und Speicherung aus mehreren Quellen. Monitoring, Alerts und Backfills.",
+        "tags": ["ETL", "S3", "Redis", "Metrics"]
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Preise & Schätzungen",
+    "subtitle": "Transparente Richtwerte. Der Endpreis hängt von Umfang, Integrationen und SLA ab.",
+    "tiers": [
+      {
+        "name": "Prototype",
+        "price": "1.500–3.000 $",
+        "desc": "Kleines Tool oder Bot. 1–2 Wochen.",
+        "features": ["Ein Service/CLI", "Basis-Logging", "Docker-Build", "Kurze Doku & Übergabe"],
+        "cta": "Angebot anfordern",
+        "highlight": false
+      },
+      {
+        "name": "Startup",
+        "price": "5.000–12.000 $",
+        "desc": "MVP-Mikroservice mit API & Worker.",
+        "features": ["Auth & Rate Limits", "PostgreSQL/Redis", "Unit & Integrationstests", "CI/CD-Pipeline"],
+        "cta": "Schätzung starten",
+        "highlight": true
+      },
+      {
+        "name": "Growth",
+        "price": "Individuell",
+        "desc": "Komplexes System oder mehrere Services.",
+        "features": ["Kubernetes (optional)", "Observability & Alerts", "SLA/Rufbereitschaft", "Security-Reviews"],
+        "cta": "Termin buchen",
+        "highlight": false
+      }
+    ],
+    "estimate": {
+      "title": "Exakte Schätzung nötig?",
+      "text": "Senden Sie ein kurzes Briefing — wir liefern Scope, Meilensteine und Festpreis oder T&M-Plan.",
+      "cta": "Kostenlose Schätzung"
+    }
+  },
+  "testi": {
+    "title": "Vertraut von Teams, die echte Produkte bauen",
+    "subtitle": "Referenzen auf Anfrage. Unten anonymisierte Zitate und Branchen.",
+    "verticals": ["Fintech", "HealthTech", "Logistik", "E-Commerce"],
+    "quotes": [
+      {
+        "author": "CTO, B2B-SaaS",
+        "role": "Infrastruktur & Daten",
+        "text": "Sauberer, gut getesteter Service mit klarer Doku. Deployment war mühelos, Metriken geben Sicherheit."
+      },
+      {
+        "author": "Leiter Operations",
+        "role": "Automatisierungsprojekt",
+        "text": "Unser wöchentlicher manueller Prozess läuft nun stündlich. Fehler werden automatisch erneut versucht; Dashboards geben Überblick."
+      }
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "subtitle": "Kurze Antworten auf die häufigsten Fragen.",
+    "items": [
+      {
+        "q": "Welche Technologien nutzen Sie?",
+        "a": "Vor allem Node.js/TypeScript, Python und ausgewählt Rust. PostgreSQL, Redis, S3; Docker standardmäßig, Kubernetes bei Bedarf."
+      },
+      {
+        "q": "Wie stellen Sie Zuverlässigkeit sicher?",
+        "a": "Unit- & Integrationstests, Retries, idempotente Operationen, strukturiertes Logging, Metriken und Health-Checks."
+      },
+      {
+        "q": "Wie steht es um Sicherheit?",
+        "a": "Secrets in sicheren Stores, Least-Privilege-Zugriff, Dependency- und Image-Scans, Review-Gates im CI."
+      },
+      {
+        "q": "Wie arbeiten wir zusammen?",
+        "a": "Discovery → Architektur → Build → Deploy. Demos alle 1–2 Wochen, gemeinsamer Backlog, klare Abnahmekriterien."
+      },
+      {
+        "q": "Bieten Sie Support & Wartung?",
+        "a": "Ja. Übergabepakete sowie optional SLA/Rufbereitschaft je nach Bedarf."
+      },
+      {
+        "q": "Festpreis oder Time & Material?",
+        "a": "Beides. Bei klarem Scope Festpreis, sonst T&M mit transparenten Wochenreports."
+      }
+    ]
+  }
+}

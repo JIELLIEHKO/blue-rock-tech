@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* === LIGHT THEME (default) === */
+@theme inline {
+    /* Base */
+    --color-background: #ffffff;
+    --color-foreground: #0b0c10;
+    --color-muted-foreground: #6b7280;
+
+    /* Surfaces & borders */
+    --color-card: #ffffff;
+    --color-card-foreground: #111827;
+    --color-border: #e5e7eb;
+
+    /* Accents */
+    --color-primary: #22d3ee;
+    --color-primary-foreground: #041016;
+    --color-accent: #7c3aed;
+    --color-accent-foreground: #0f0719;
+    --color-success: #16a34a;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+
+    /* Dark navbar palette (site stays light) */
+    --color-nav: #0b0c10;
+    --color-nav-foreground: #f2f3f5;
+    --color-nav-border: #1c2130;
+}
+
+:root {
+    color-scheme: light;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg-gradient-accent {
+    background-image: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+}
