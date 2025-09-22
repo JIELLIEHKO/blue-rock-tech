@@ -15,8 +15,6 @@ const DATE_FMT = new Intl.DateTimeFormat('en-GB', {
 
 
 function parseISODate(dateStr: string) {
-  // Если приходит только дата без времени — добавим полночь по UTC
-  // Если там уже полная ISO со временем, конкатенация не навредит: Date корректно распарсит
   const iso = dateStr.length <= 10 ? `${dateStr}T00:00:00.000Z` : dateStr;
   return new Date(iso);
 }
