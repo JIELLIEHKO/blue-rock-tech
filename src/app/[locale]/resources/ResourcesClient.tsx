@@ -14,13 +14,10 @@ export default function ResourcesClient({ items }: { items: ResourceItem[] }) {
   const { query, setQuery, activeType, setActiveType, filtered, featured, rest } = useResourceFilter(items);
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-16 pt-8 md:px-6 md:pt-12">
+    <main className="mx-auto max-w-7xl px-4 pt-8 md:px-6 md:pt-12">
       <section className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-b from-card to-card/60 p-6 md:p-10">
         <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs text-muted-foreground">
-              <span className="inline-block h-2 w-2 rounded-full bg-primary" /> Curated library
-            </div>
             <h1 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Resources</h1>
             <p className="mt-2 max-w-2xl text-muted-foreground">
               Guides, templates, datasets, and examples to help you ship faster. Fully aligned with our

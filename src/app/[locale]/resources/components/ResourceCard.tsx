@@ -13,7 +13,6 @@ const DATE_FMT = new Intl.DateTimeFormat('en-GB', {
   timeZone: 'UTC',
 });
 
-
 function parseISODate(dateStr: string) {
   const iso = dateStr.length <= 10 ? `${dateStr}T00:00:00.000Z` : dateStr;
   return new Date(iso);
