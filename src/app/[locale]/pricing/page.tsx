@@ -190,7 +190,7 @@ export default function PricingPage() {
       {/* Top gradient glow */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50%_40%_at_70%_10%,rgba(59,130,246,0.12),transparent_60%),radial-gradient(40%_30%_at_10%_10%,rgba(16,185,129,0.10),transparent_60%)]" />
 
-      <section className="mx-auto max-w-6xl px-4 pt-12 md:pt-16">
+      <section className="mx-auto max-w-7xl px-4 pt-12 md:pt-16">
         <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
           <div>
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
@@ -225,7 +225,7 @@ export default function PricingPage() {
       </section>
 
       {/* Tier cards */}
-      <section className="mx-auto max-w-6xl px-4 mt-10 grid gap-6 md:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 mt-10 grid gap-6 md:grid-cols-3">
         <TierCard
           title="Prototype"
           price="$1,500–3,000"
@@ -266,7 +266,7 @@ export default function PricingPage() {
       </section>
 
       {/* Matrix */}
-      <section className="mx-auto max-w-6xl px-4 mt-14">
+      <section className="mx-auto max-w-7xl px-4 mt-14">
         <h2 className="text-xl md:text-2xl font-semibold">What’s included by tier</h2>
         <Card className="mt-4 overflow-hidden">
           <div className="grid grid-cols-4 border-b border-zinc-200/70 dark:border-zinc-800/70 bg-zinc-50/60 dark:bg-zinc-900/40">
@@ -306,7 +306,7 @@ export default function PricingPage() {
       </section>
 
       {/* Add‑ons */}
-      <section className="mx-auto max-w-6xl px-4 mt-14">
+      <section className="mx-auto max-w-7xl px-4 mt-14">
         <div className="flex items-end justify-between gap-4">
           <div>
             <h2 className="text-xl md:text-2xl font-semibold">Popular add‑ons</h2>
@@ -335,7 +335,7 @@ export default function PricingPage() {
       </section>
 
       {/* Engagement models */}
-      <section className="mx-auto max-w-6xl px-4 mt-14 grid gap-6 md:grid-cols-2">
+      <section className="mx-auto max-w-7xl px-4 mt-14 grid gap-6 md:grid-cols-2">
         <Card className="p-6">
           <h3 className="text-lg font-semibold">Fixed‑scope</h3>
           <p className="mt-2 text-zinc-600 dark:text-zinc-300">
@@ -376,7 +376,7 @@ export default function PricingPage() {
       </section>
 
       {/* Process */}
-      <section className="mx-auto max-w-6xl px-4 mt-14">
+      <section className="mx-auto max-w-7xl px-4 mt-14">
         <h2 className="text-xl md:text-2xl font-semibold">Process & typical timeline</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           <StepCard
@@ -409,7 +409,7 @@ export default function PricingPage() {
       </section>
 
       {/* SLA */}
-      <section className="mx-auto max-w-6xl px-4 mt-14 grid gap-6 md:grid-cols-2">
+      <section className="mx-auto max-w-7xl px-4 mt-14 grid gap-6 md:grid-cols-2">
         <Card className="p-6">
           <h3 className="text-lg font-semibold">What you always get</h3>
           <ul className="mt-3 space-y-2 text-sm text-zinc-700 dark:text-zinc-300">
@@ -448,7 +448,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="mx-auto max-w-6xl px-4 mt-14" id="faq">
+      <section className="mx-auto max-w-7xl px-4 mt-14" id="faq">
         <h2 className="text-xl md:text-2xl font-semibold">FAQ</h2>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           <FAQ
@@ -479,7 +479,7 @@ export default function PricingPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section id="estimate" className="mx-auto max-w-6xl px-4 mt-16 mb-24">
+      <section id="estimate" className="mx-auto max-w-7xl px-4 mt-16 mb-24">
         <Card className="p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <div>
             <h3 className="text-xl font-semibold">Need a precise estimate?</h3>

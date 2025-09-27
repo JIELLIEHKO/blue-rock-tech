@@ -57,7 +57,6 @@ export default function PricingSection() {
   const t = useTranslations('pricing');
 
   const tiers = (t.raw('tiers') as Tier[]) ?? [];
-  const estTitle = t('estimate.title');
   const estText = t('estimate.text');
   const estCta = t('estimate.cta');
 

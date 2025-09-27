@@ -12,7 +12,6 @@ export default function HeroSection() {
       id="hero"
       className="relative overflow-hidden bg-background text-foreground"
       style={{
-        // жёстко привязываем к токенам, чтобы тема 100% перекрашивала фон и текст
         backgroundColor: 'var(--color-background)',
         color: 'var(--color-foreground)',
       }}

@@ -1,5 +1,5 @@
 // app/providers/ThemeProvider.tsx
-'use client';
+"use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 
@@ -19,7 +19,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [stored, setStored] = useState<Stored>("system");
   const [theme, setTheme] = useState<Theme>("light");
 
-  // sync from storage + system
   useEffect(() => {
     const ls = (localStorage.getItem("theme") as Stored | null) || "system";
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -33,7 +32,6 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     const onChange = () => stored === "system" && apply("system");
     mq.addEventListener?.("change", onChange);
     return () => mq.removeEventListener?.("change", onChange);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const set = useCallback((v: Stored) => {

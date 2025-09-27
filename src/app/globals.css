@@ -11,19 +11,16 @@
     --color-card: #ffffff;
     --color-card-foreground: #111827;
     --color-border: #e5e7eb;
-    /* более заметная рамка/ринг для светлой темы */
     --color-border-strong: #d1d5db;
 
     /* Accents */
     --color-primary: #22d3ee;
-    --color-primary-foreground: #041016;    /* тёмный текст на акценте (если нужно) */
+    --color-primary-foreground: #041016;
     --color-accent: #7c3aed;
     --color-accent-foreground: #0f0719;
+    --color-cta-foreground: #0b0c10;
 
-    /* Текст на градиентной кнопке */
-    --color-cta-foreground: #0b0c10;        /* ЧЁРНЫЙ в светлой */
-
-    /* Navbar (можно оставить тёмной) */
+    /* Navbar */
     --color-nav: #0b0c10;
     --color-nav-foreground: #f2f3f5;
     --color-nav-border: #1c2130;
@@ -38,7 +35,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Акцентный градиент + корректный цвет текста + видимая граница */
 .bg-gradient-accent {
     background-image: linear-gradient(135deg, var(--color-primary), var(--color-accent));
     color: var(--color-cta-foreground);
@@ -56,24 +52,22 @@ body {
     --color-card: #111827;
     --color-card-foreground: #e5e7eb;
     --color-border: #1f2937;
-    --color-border-strong: #334155;         /* заметнее на тёмном */
+    --color-border-strong: #334155;
 
     --color-primary: #22d3ee;
     --color-primary-foreground: #041016;
     --color-accent: #a78bfa;
     --color-accent-foreground: #0f0719;
 
-    --color-cta-foreground: #ffffff;        /* СВЕТЛЫЙ в тёмной */
+    --color-cta-foreground: #ffffff;
 
     --color-nav: #0b0c10;
     --color-nav-foreground: #e5e7eb;
     --color-nav-border: #303744;
 }
 
-/* на всякий случай — если где-то был фикс bg-white */
 :root[data-theme="dark"] body { background: var(--color-background); }
 
-/* опционально — лёгкий transition */
 html, body, .bg-card, .navbar, .bg-gradient-accent {
     transition: background-color .2s ease, color .2s ease, border-color .2s ease, background-image .2s ease;
 }

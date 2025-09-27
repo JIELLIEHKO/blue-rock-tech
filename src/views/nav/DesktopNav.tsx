@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { Moon, Sun } from 'lucide-react';
 import {
   UI_TO_LOCALE,
   LOCALE_TO_UI,
@@ -12,8 +11,8 @@ import {
   type AppLocale,
 } from './constants';
 import LanguageDropdown from './LanguageDropdown';
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { Button } from '@/app/components/Button';
+import { ThemeToggle } from "@/app/providers/ThemeToggle";
 
 type Props = {
   lang: Lang;
@@ -39,9 +38,6 @@ export default function DesktopNav({ langOpen, toggleLang, langRef }: Props) {
   const search = useSearchParams();
 
   const uiLang: Lang = LOCALE_TO_UI[locale];
-
-  // THEME
-  const { theme, toggle } = useTheme(); // 'light' | 'dark'
 
   const onChangeLang = (ui: Lang) => {
     const nextLocale = UI_TO_LOCALE[ui];
@@ -79,17 +75,7 @@ export default function DesktopNav({ langOpen, toggleLang, langRef }: Props) {
       </nav>
 
       <div className="flex items-center justify-end gap-4 text-sm">
-        {/* Theme toggle */}
-        <Button
-          onClick={toggle}
-          variant="secondary"
-          size="sm"
-          leftIcon={theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          title={theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
-        >
-          {theme === 'dark' ? 'Light' : 'Dark'}
-        </Button>
-
+        <ThemeToggle withSystem={false} />
         <LanguageDropdown
           lang={uiLang}
           onChange={onChangeLang}
@@ -98,11 +84,9 @@ export default function DesktopNav({ langOpen, toggleLang, langRef }: Props) {
           containerRef={langRef}
           align="right"
         />
-
         <Link href="/auth/login" className="opacity-90 hover:opacity-100">
           {t('cta.login')}
         </Link>
-
         <Button href="/start" variant="default" size="md">
           {t('cta.start')}
         </Button>
