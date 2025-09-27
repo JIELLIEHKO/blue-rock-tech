@@ -1,6 +1,6 @@
 'use client';
 
-import {useTranslations} from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 type Item = { label: string; note?: string };
 
@@ -31,7 +31,14 @@ const quality: Item[] = [
 
 function Pill({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm">
+    <span
+      className="inline-flex items-center rounded-full px-3 py-1 text-sm"
+      style={{
+        border: '1px solid var(--color-border)',
+        color: 'var(--color-foreground)',
+        backgroundColor: 'transparent',
+      }}
+    >
       {children}
     </span>
   );
@@ -39,13 +46,24 @@ function Pill({ children }: { children: React.ReactNode }) {
 
 function Group({ title, items }: { title: string; items: Item[] }) {
   return (
-    <div className="rounded-2xl border border-border p-5 md:p-6 bg-card">
+    <div
+      className="rounded-2xl p-5 md:p-6"
+      style={{
+        backgroundColor: 'var(--color-card)',
+        color: 'var(--color-card-foreground)',
+        border: '1px solid var(--color-border)',
+      }}
+    >
       <h3 className="text-lg font-semibold mb-3">{title}</h3>
       <div className="flex flex-wrap gap-2">
         {items.map((i) => (
           <Pill key={i.label}>
             {i.label}
-            {i.note ? <span className="opacity-70">&nbsp;· {i.note}</span> : null}
+            {i.note ? (
+              <span style={{ color: 'var(--color-muted-foreground)' }}>
+                &nbsp;· {i.note}
+              </span>
+            ) : null}
           </Pill>
         ))}
       </div>
@@ -57,10 +75,19 @@ export default function TechStackSection() {
   const t = useTranslations('tech');
 
   return (
-    <section id="tech" className="container max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-14 md:py-20">
+    <section
+      id="tech"
+      className="container mx-auto max-w-7xl px-4 md:px-6 lg:px-8 py-14 md:py-20"
+      style={{
+        backgroundColor: 'var(--color-background)',
+        color: 'var(--color-foreground)',
+      }}
+    >
       <div className="max-w-2xl">
         <h2 className="text-2xl md:text-3xl font-bold">{t('title')}</h2>
-        <p className="mt-3 text-muted-foreground">{t('subtitle')}</p>
+        <p className="mt-3" style={{ color: 'var(--color-muted-foreground)' }}>
+          {t('subtitle')}
+        </p>
       </div>
 
       <div className="mt-8 grid gap-4 md:gap-6 md:grid-cols-2">

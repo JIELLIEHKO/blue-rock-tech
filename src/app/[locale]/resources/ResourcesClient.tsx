@@ -9,7 +9,6 @@ import { TYPES } from "@/app/[locale]/resources/constants";
 import Chip from "@/app/[locale]/resources/components/Chip";
 import ResourceCard from "@/app/[locale]/resources/components/ResourceCard";
 
-
 export default function ResourcesClient({ items }: { items: ResourceItem[] }) {
   const { query, setQuery, activeType, setActiveType, filtered, featured, rest } = useResourceFilter(items);
 
@@ -48,7 +47,6 @@ export default function ResourcesClient({ items }: { items: ResourceItem[] }) {
           </div>
         </div>
 
-
         <div className="mt-6 flex flex-wrap gap-2">
           {TYPES.map((t) => (
             <Chip key={t} active={activeType === t} onClick={() => setActiveType(t)}>
@@ -70,7 +68,6 @@ export default function ResourcesClient({ items }: { items: ResourceItem[] }) {
           </div>
         </section>
       )}
-
 
       <section className="mt-10">
         <div className="mb-4 flex items-center gap-2">
@@ -106,7 +103,6 @@ export default function ResourcesClient({ items }: { items: ResourceItem[] }) {
           </Link>
         </div>
       </section>
-
 
       <p className="mt-6 text-center text-xs text-muted-foreground">
         P.S. Update the <code>RESOURCES</code> array in <code>page.tsx</code> to curate this page.

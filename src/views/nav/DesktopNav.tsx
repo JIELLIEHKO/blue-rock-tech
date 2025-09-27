@@ -1,13 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import {useTranslations, useLocale} from 'next-intl';
-import {usePathname, useRouter, useSearchParams} from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { Moon, Sun } from 'lucide-react';
 import {
-  UI_TO_LOCALE, LOCALE_TO_UI, LOCALES,
-  type Lang, type AppLocale
+  UI_TO_LOCALE,
+  LOCALE_TO_UI,
+  LOCALES,
+  type Lang,
+  type AppLocale,
 } from './constants';
 import LanguageDropdown from './LanguageDropdown';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { Button } from '@/app/components/Button';
 
 type Props = {
   lang: Lang;
@@ -34,6 +40,9 @@ export default function DesktopNav({ langOpen, toggleLang, langRef }: Props) {
 
   const uiLang: Lang = LOCALE_TO_UI[locale];
 
+  // THEME
+  const { theme, toggle } = useTheme(); // 'light' | 'dark'
+
   const onChangeLang = (ui: Lang) => {
     const nextLocale = UI_TO_LOCALE[ui];
     if (nextLocale === locale) return;
@@ -46,22 +55,23 @@ export default function DesktopNav({ langOpen, toggleLang, langRef }: Props) {
 
   const home = `/${locale}`;
   const links = [
-    { href: `${home}#products`,     label: t('nav.products') },
-    { href: `${home}#data-for-ai`,  label: t('nav.dataForAi') },
-    { href: `/${locale}/pricing`,   label: t('nav.pricing') },
-    { href: `/${locale}/resources`,    label: t('nav.resources') },
-    { href: `${home}#docs`,         label: t('nav.docs') },
+    { href: `${home}#products`, label: t('nav.products') },
+    { href: `${home}#data-for-ai`, label: t('nav.dataForAi') },
+    { href: `/${locale}/pricing`, label: t('nav.pricing') },
+    { href: `/${locale}/resources`, label: t('nav.resources') },
+    { href: `${home}#docs`, label: t('nav.docs') },
   ];
 
   return (
     <div className="hidden md:grid mx-auto h-16 max-w-7xl grid-cols-[1fr_auto_1fr] items-center px-6">
       <div className="flex items-center">
-        {/* ведём на текущую локаль */}
-        <Link href={`/${locale}`} className="font-bold tracking-tight">Blue Rock Tech</Link>
+        <Link href={`/${locale}`} className="font-bold tracking-tight">
+          Blue Rock Tech
+        </Link>
       </div>
 
       <nav className="flex items-center gap-6 text-sm">
-        {links.map(l => (
+        {links.map((l) => (
           <Link key={l.href} href={l.href} className="opacity-90 hover:opacity-100">
             {l.label}
           </Link>
@@ -69,7 +79,17 @@ export default function DesktopNav({ langOpen, toggleLang, langRef }: Props) {
       </nav>
 
       <div className="flex items-center justify-end gap-4 text-sm">
-        <div>Dark/Light</div>
+        {/* Theme toggle */}
+        <Button
+          onClick={toggle}
+          variant="secondary"
+          size="sm"
+          leftIcon={theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          title={theme === 'dark' ? 'Switch to light' : 'Switch to dark'}
+        >
+          {theme === 'dark' ? 'Light' : 'Dark'}
+        </Button>
+
         <LanguageDropdown
           lang={uiLang}
           onChange={onChangeLang}
@@ -78,12 +98,14 @@ export default function DesktopNav({ langOpen, toggleLang, langRef }: Props) {
           containerRef={langRef}
           align="right"
         />
+
         <Link href="/auth/login" className="opacity-90 hover:opacity-100">
           {t('cta.login')}
         </Link>
-        <Link href="/start" className="rounded-lg px-3.5 py-2 font-semibold text-black bg-gradient-accent">
+
+        <Button href="/start" variant="default" size="md">
           {t('cta.start')}
-        </Link>
+        </Button>
       </div>
     </div>
   );

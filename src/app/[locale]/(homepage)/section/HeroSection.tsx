@@ -1,19 +1,29 @@
 'use client';
-import {useTranslations} from 'next-intl';
+
+import { useTranslations } from 'next-intl';
 import CodeShowcase from '../components/CodeShowcase';
+import { Button } from '@/app/components/Button';
 
 export default function HeroSection() {
   const t = useTranslations();
 
   return (
-    <section id="hero" className="relative overflow-hidden bg-background text-foreground">
+    <section
+      id="hero"
+      className="relative overflow-hidden bg-background text-foreground"
+      style={{
+        // жёстко привязываем к токенам, чтобы тема 100% перекрашивала фон и текст
+        backgroundColor: 'var(--color-background)',
+        color: 'var(--color-foreground)',
+      }}
+    >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-48 h-[420px] blur-3xl"
         style={{
           background:
             'radial-gradient(40% 40% at 15% 10%, var(--color-primary) 0%, transparent 60%), radial-gradient(28% 28% at 90% 0%, var(--color-accent) 0%, transparent 60%)',
-          opacity: 0.16
+          opacity: 0.16,
         }}
       />
 
@@ -28,28 +38,20 @@ export default function HeroSection() {
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3">
-            <a
-              href="#pricing"
-              className="rounded-xl bg-gradient-accent px-5 py-3 font-semibold text-black shadow-sm transition-transform hover:scale-[1.01]"
-            >
+            <Button href="#pricing" variant="default" size="lg">
               {t('pricing.estimate.cta')}
-            </a>
+            </Button>
 
-            <a
-              href="#examples"
-              className="rounded-xl border border-border bg-card px-5 py-3 font-semibold hover:bg-card/70"
-            >
+            <Button href="#examples" variant="secondary" size="lg">
               {t('hero.browse')}
-              {/* или: t('use.title') — если не добавляешь отдельный ключ */}
-            </a>
+            </Button>
           </div>
 
-          {/* эти пункты можно оставить хардкодом либо вынести в hero.highlights */}
           <ul className="mt-8 grid gap-4 text-sm text-muted-foreground sm:grid-cols-3">
             {[
               'Node.js • Python • Rust',
               'APIs, workers & schedulers',
-              'Tests, logging & metrics'
+              'Tests, logging & metrics',
             ].map((item) => (
               <li key={item} className="flex items-center gap-2">
                 <span

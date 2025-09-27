@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useState } from "react";
+import { useState } from 'react';
 
 const SNIPPETS = {
   nodeService: String.raw`// Node.js microservice (Express)
@@ -69,33 +69,44 @@ jobs:
       - run: npm ci
       - run: npm test --if-present
       - run: npm run build`,
-};
+} as const;
 
 const TABS = [
-  { key: "nodeService", label: "Backend Service", lang: "ts" },
-  { key: "pythonBot", label: "Bot / Automation", lang: "py" },
-  { key: "rustCli", label: "CLI Tool", lang: "rs" },
-  { key: "ciSnippet", label: "CI/CD", lang: "yml" },
+  { key: 'nodeService', label: 'Backend Service', lang: 'ts' },
+  { key: 'pythonBot', label: 'Bot / Automation', lang: 'py' },
+  { key: 'rustCli', label: 'CLI Tool', lang: 'rs' },
+  { key: 'ciSnippet', label: 'CI/CD', lang: 'yml' },
 ] as const;
 
 export default function CodeShowcase() {
-  const [active, setActive] = useState<(typeof TABS)[number]["key"]>("nodeService");
+  const [active, setActive] =
+    useState<(typeof TABS)[number]['key']>('nodeService');
 
   const code = SNIPPETS[active];
 
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(code);
-    } catch {
-      /* ignore */
-    }
+    } catch {}
   };
 
   return (
     <div className="relative">
+      {/* внешняя градиентная рамка */}
       <div className="rounded-2xl bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-accent)] p-[1px] shadow-sm">
-        <div className="rounded-2xl bg-card">
-          <div className="flex flex-wrap items-center gap-2 border-b border-border px-3 py-2">
+        {/* внутренняя карточка: цвета прямо из токенов */}
+        <div
+          className="rounded-2xl"
+          style={{
+            backgroundColor: 'var(--color-card)',
+            color: 'var(--color-card-foreground)',
+          }}
+        >
+          {/* Header с табами и Copy */}
+          <div
+            className="flex flex-wrap items-center gap-2 px-3 py-2"
+            style={{ borderBottom: '1px solid var(--color-border)' }}
+          >
             <div className="flex flex-1 flex-wrap items-center gap-1">
               {TABS.map((t) => {
                 const isActive = t.key === active;
@@ -103,10 +114,19 @@ export default function CodeShowcase() {
                   <button
                     key={t.key}
                     onClick={() => setActive(t.key)}
-                    className={`rounded-md border px-2.5 py-1.5 text-xs ${
-                      isActive ? "bg-background" : "opacity-70 hover:opacity-100"
-                    }`}
-                    style={{ borderColor: "var(--color-border)" }}
+                    className={[
+                      'rounded-md px-2.5 py-1.5 text-xs transition',
+                      !isActive && 'hover:bg-[color:var(--color-background)]',
+                    ].join(' ')}
+                    style={{
+                      border: '1px solid var(--color-border)',
+                      backgroundColor: isActive
+                        ? 'var(--color-background)'
+                        : 'transparent',
+                      color: isActive
+                        ? 'var(--color-foreground)'
+                        : 'color-mix(in oklab, var(--color-foreground) 80%, transparent)',
+                    }}
                     aria-pressed={isActive}
                   >
                     {t.label}
@@ -117,27 +137,64 @@ export default function CodeShowcase() {
 
             <button
               onClick={copy}
-              className="rounded-md border px-2.5 py-1.5 text-xs hover:bg-background"
-              style={{ borderColor: "var(--color-border)" }}
+              className="rounded-md px-2.5 py-1.5 text-xs transition hover:bg-[color:var(--color-background)]"
+              style={{
+                border: '1px solid var(--color-border)',
+                color: 'var(--color-foreground)',
+                backgroundColor: 'transparent',
+              }}
               title="Copy snippet"
             >
               Copy
             </button>
           </div>
 
+          {/* Код и мета-блоки */}
           <div className="p-4 sm:p-6">
-            <pre className="overflow-x-auto rounded-lg border border-border bg-background/60 p-4 text-[13px] leading-relaxed tab-8">
+            <pre
+              className="overflow-x-auto rounded-lg font-mono text-[13px] leading-relaxed"
+              style={{
+                backgroundColor: 'var(--color-card)',
+                color: 'var(--color-card-foreground)',
+                border: '1px solid var(--color-border)',
+                padding: '1rem',
+              }}
+            >
               <code className="whitespace-pre">{code}</code>
             </pre>
 
             <div className="mt-4 grid gap-3 sm:grid-cols-3">
               {[
-                { k: "Runtime", v: active === "pythonBot" ? "Python 3.11" : active === "rustCli" ? "Rust 1.79+" : "Node 20+" },
-                { k: "Testing", v: "Unit + integration" },
-                { k: "Deploy", v: active === "ciSnippet" ? "GitHub Actions" : "Docker container" },
+                {
+                  k: 'Runtime',
+                  v:
+                    active === 'pythonBot'
+                      ? 'Python 3.11'
+                      : active === 'rustCli'
+                        ? 'Rust 1.79+'
+                        : 'Node 20+',
+                },
+                { k: 'Testing', v: 'Unit + integration' },
+                {
+                  k: 'Deploy',
+                  v: active === 'ciSnippet' ? 'GitHub Actions' : 'Docker container',
+                },
               ].map(({ k, v }) => (
-                <div key={k} className="rounded-xl border border-border bg-background/60 px-4 py-3">
-                  <div className="text-[11px] uppercase tracking-wide text-muted-foreground">{k}</div>
+                <div
+                  key={k}
+                  className="rounded-xl px-4 py-3"
+                  style={{
+                    backgroundColor: 'var(--color-card)',
+                    color: 'var(--color-card-foreground)',
+                    border: '1px solid var(--color-border)',
+                  }}
+                >
+                  <div
+                    className="text-[11px] uppercase tracking-wide"
+                    style={{ color: 'var(--color-muted-foreground)' }}
+                  >
+                    {k}
+                  </div>
                   <div className="mt-1 text-sm font-semibold">{v}</div>
                 </div>
               ))}
@@ -146,13 +203,14 @@ export default function CodeShowcase() {
         </div>
       </div>
 
+      {/* мягкое свечение под карточкой */}
       <div
         aria-hidden
         className="pointer-events-none absolute -inset-2 rounded-[1.25rem] opacity-20"
         style={{
           background:
-            "conic-gradient(from 180deg at 50% 50%, var(--color-primary), transparent, var(--color-accent), transparent)",
-          filter: "blur(20px)",
+            'conic-gradient(from 180deg at 50% 50%, var(--color-primary), transparent, var(--color-accent), transparent)',
+          filter: 'blur(20px)',
         }}
       />
     </div>
