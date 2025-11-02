@@ -7,7 +7,13 @@ export function Card({
 }: React.PropsWithChildren<{ className?: string }>) {
   return (
     <div
-      className={`rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/80 dark:bg-zinc-900/60 shadow-sm ${className}`}
+      className={[
+        "rounded-2xl border shadow-sm",
+        "border-[var(--color-border)]",
+        "bg-[var(--color-card)]",
+        "text-[var(--color-card-foreground)]",
+        className,
+      ].join(" ")}
     >
       {children}
     </div>
@@ -26,7 +32,12 @@ export function CTAButton({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center px-4 py-2 rounded-xl font-medium border border-zinc-300 dark:border-zinc-700 hover:shadow-sm transition ${className}`}
+      className={[
+        "inline-flex items-center justify-center px-4 py-2 rounded-xl font-medium transition",
+        "border border-[var(--color-border)]",
+        "hover:bg-[color:rgb(250,250,250)] dark:hover:bg-transparent",
+        className,
+      ].join(" ")}
     >
       {children}
     </Link>
@@ -35,7 +46,14 @@ export function CTAButton({
 
 export function Badge({ children }: React.PropsWithChildren) {
   return (
-    <span className="inline-flex items-center gap-1 rounded-full border border-slate-200 dark:border-slate-700 bg-white/70 dark:bg-slate-800/80 px-2.5 py-0.5 text-xs text-slate-700 dark:text-slate-200">
+    <span
+      className={[
+        "inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs",
+        "border border-[var(--color-border)]",
+        "bg-[var(--color-card)]",
+        "text-[var(--color-foreground)]",
+      ].join(" ")}
+    >
       {children}
     </span>
   );

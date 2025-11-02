@@ -1,13 +1,17 @@
 'use client';
 
-import { Form, Input, Checkbox, Button, Alert } from 'antd';
+import { Form, Input, Checkbox, Button, Alert, message } from "antd";
 import { useState } from 'react';
 import AuthCard from '@/views/auth/AuthCard';
 import OAuthButtons from '@/views/auth/OAuthButtons';
+import { useParams, useRouter, useSearchParams } from "next/navigation";
+
 
 type Values = { email: string; password: string; remember?: boolean };
 
 export default function LoginPage() {
+  const router = useRouter();
+  const { locale } = useParams<{ locale: string }>();
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -17,17 +21,26 @@ export default function LoginPage() {
     try {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
-        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(values),
+        // same-origin, поэтому credentials можно не указывать
+        body: JSON.stringify({ email: values.email, password: values.password }),
       });
+
+      const data = await res.json().catch(() => ({}));
+
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.message || 'Login failed');
+        const msg = (data?.message as string) || 'Login failed';
+        setErr(msg);
+        message.error(msg);
+        return;
       }
-      window.location.href = '/';
+
+      message.success('Добро пожаловать!');
+      router.replace(`/${locale}/auth/profile`);
     } catch (e: any) {
-      setErr(e.message);
+      const msg = e?.message ?? 'Network error';
+      setErr(msg);
+      message.error(msg);
     } finally {
       setLoading(false);
     }

@@ -1,52 +1,54 @@
-import type { Metadata } from 'next';
-import {
-  BadgeDollarSign,
-  Shield,
-  Clock,
-} from 'lucide-react';
-import { Badge, Card, CTAButton } from "@/app/[locale]/pricing/components/primitives";
-import { TierCard } from "@/app/[locale]/pricing/components/TierCard";
-import { FeatureMatrixTable } from "@/app/[locale]/pricing/components/FeatureMatrixTable";
 import { AddOnsGrid } from "@/app/[locale]/pricing/components/AddOnsGrid";
 import { EngagementModels } from "@/app/[locale]/pricing/components/EngagementModels";
+import { FAQ } from "@/app/[locale]/pricing/components/FAQ";
+import { FeatureMatrixTable } from "@/app/[locale]/pricing/components/FeatureMatrixTable";
+import { Badge, Card, CTAButton } from "@/app/[locale]/pricing/components/primitives";
 import { ProcessSection } from "@/app/[locale]/pricing/components/ProcessSection";
 import { SLAsSection } from "@/app/[locale]/pricing/components/SLAsSection";
+import { TierCard } from "@/app/[locale]/pricing/components/TierCard";
+import { addOns, faq, featureMatrix } from "@/app/[locale]/pricing/hooks/pricingData";
 import { FAQSchema } from "@/app/[locale]/pricing/schema/FAQSchema";
-import { featureMatrix, addOns, faq } from "@/app/[locale]/pricing/hooks/pricingData";
-import { FAQ } from "@/app/[locale]/pricing/components/FAQ";
+import { BadgeDollarSign, Clock, Shield } from "lucide-react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Pricing & estimates — Blue Rock Tech',
+  title: "Pricing & estimates — Blue Rock Tech",
   description:
-    'Transparent ballparks for automation tools, backend services, and bots. Get a free estimate or book a call for a precise fixed quote.',
+    "Transparent ballparks for automation tools, backend services, and bots. Get a free estimate or book a call for a precise fixed quote.",
   openGraph: {
-    title: 'Pricing & estimates — Blue Rock Tech',
+    title: "Pricing & estimates — Blue Rock Tech",
     description:
-      'Transparent ballparks for automation tools, backend services, and bots. Get a free estimate or book a call for a precise fixed quote.',
-    type: 'website',
+      "Transparent ballparks for automation tools, backend services, and bots. Get a free estimate or book a call for a precise fixed quote.",
+    type: "website",
   },
-  alternates: { canonical: '/pricing' },
+  alternates: { canonical: "/pricing" },
   keywords: [
-    'software pricing',
-    'backend service pricing',
-    'automation tools cost',
-    'bots and CLI apps',
-    'MVP microservice cost',
-    'Blue Rock Tech',
+    "software pricing",
+    "backend service pricing",
+    "automation tools cost",
+    "bots and CLI apps",
+    "MVP microservice cost",
+    "Blue Rock Tech",
   ],
 };
 
 export default function PricingPage() {
-
   return (
     <main className="relative">
-
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50%_40%_at_70%_10%,rgba(59,130,246,0.12),transparent_60%),radial-gradient(40%_30%_at_10%_10%,rgba(16,185,129,0.10),transparent_60%)]" />
+      <div
+        className="
+        only-dark pointer-events-none absolute inset-0 -z-10
+        bg-[radial-gradient(50%_40%_at_70%_10%,rgba(59,130,246,0.12),transparent_60%),
+        radial-gradient(40%_30%_at_10%_10%,rgba(16,185,129,0.10),transparent_60%)]
+        "
+      />
 
       <section className="mx-auto max-w-7xl px-4 pt-12 md:pt-16">
         <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">Pricing & estimates</h1>
+            <h1 className="text-3xl md:text-5xl font-semibold tracking-tight">
+              Pricing & estimates
+            </h1>
             <p className="mt-3 text-zinc-600 dark:text-zinc-300 max-w-2xl">
               Transparent ballparks. Final quote depends on scope, integrations, and SLA. Most MVPs
               land in the <strong>$5k–12k</strong> range with 2–5 weeks of delivery.
@@ -64,7 +66,10 @@ export default function PricingPage() {
             </div>
           </div>
           <div className="flex gap-3">
-            <CTAButton href="#estimate" className="bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+            <CTAButton
+              href="#estimate"
+              className="bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
+            >
               Get a free estimate
             </CTAButton>
             <CTAButton href="/contact">Book a call</CTAButton>
@@ -77,12 +82,12 @@ export default function PricingPage() {
           title="Prototype"
           price="$1,500–3,000"
           note="Small scoped tool or bot · 1–2 weeks."
-          cta={{ label: 'Get a quote', href: '/contact' }}
+          cta={{ label: "Get a quote", href: "/contact" }}
           features={[
-            'Single service/CLI',
-            'Basic logging',
-            'Dockerized build',
-            'Light docs & handover',
+            "Single service/CLI",
+            "Basic logging",
+            "Dockerized build",
+            "Light docs & handover",
           ]}
         />
         <TierCard
@@ -90,15 +95,25 @@ export default function PricingPage() {
           title="Startup"
           price="$5,000–12,000"
           note="MVP microservice with API & worker."
-          cta={{ label: 'Start estimation', href: '#estimate' }}
-          features={['Auth & rate limits', 'PostgreSQL/Redis', 'Unit & integration tests', 'CI/CD pipeline']}
+          cta={{ label: "Start estimation", href: "#estimate" }}
+          features={[
+            "Auth & rate limits",
+            "PostgreSQL/Redis",
+            "Unit & integration tests",
+            "CI/CD pipeline",
+          ]}
         />
         <TierCard
           title="Growth"
           price="Custom"
           note="Complex system or multiple services."
-          cta={{ label: 'Book a call', href: '/contact' }}
-          features={['Kubernetes (optional)', 'Observability & alerts', 'SLA/on‑call options', 'Security reviews']}
+          cta={{ label: "Book a call", href: "/contact" }}
+          features={[
+            "Kubernetes (optional)",
+            "Observability & alerts",
+            "SLA/on‑call options",
+            "Security reviews",
+          ]}
         />
       </section>
 
@@ -136,11 +151,15 @@ export default function PricingPage() {
           <div>
             <h3 className="text-xl font-semibold">Need a precise estimate?</h3>
             <p className="mt-1 text-zinc-600 dark:text-zinc-300">
-              Share a short brief and we’ll return with scope, milestones, and a fixed price or T&M plan.
+              Share a short brief and we’ll return with scope, milestones, and a fixed price or T&M
+              plan.
             </p>
           </div>
           <div className="flex gap-3">
-            <CTAButton href="/estimate" className="bg-zinc-900 text-white dark:bg-white dark:text-zinc-900">
+            <CTAButton
+              href="/estimate"
+              className="bg-zinc-900 text-white dark:bg-white dark:text-zinc-900"
+            >
               Get a free estimate
             </CTAButton>
             <CTAButton href="/contact">Book a call</CTAButton>

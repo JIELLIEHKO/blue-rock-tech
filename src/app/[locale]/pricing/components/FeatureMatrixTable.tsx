@@ -9,7 +9,7 @@ export function FeatureMatrixTable({ rows }: { rows: FeatureRow[] }) {
     <div>
       <h2 className="text-xl md:text-2xl font-semibold">What’s included by tier</h2>
       <Card className="mt-4 overflow-hidden">
-        <div className="grid grid-cols-4 border-b border-zinc-200/70 dark:border-zinc-800/70 bg-zinc-50/60 dark:bg-zinc-900/40">
+        <div className="grid grid-cols-4 border-b border-[var(--color-border)] bg-[var(--color-card)]">
           <div className="px-4 py-3 text-sm font-medium text-zinc-600 dark:text-zinc-300">Feature</div>
           <div className="px-4 py-3 text-center font-semibold">Prototype</div>
           <div className="px-4 py-3 text-center font-semibold">Startup</div>
@@ -17,7 +17,7 @@ export function FeatureMatrixTable({ rows }: { rows: FeatureRow[] }) {
         </div>
         <ul>
           {rows.map((row) => (
-            <li key={row.key} className="grid grid-cols-4 border-t border-zinc-200/70 dark:border-zinc-800/70">
+            <li key={row.key} className="grid grid-cols-4 border-t border-[var(--color-border)]">
               <div className="px-4 py-3 text-sm text-zinc-800 dark:text-zinc-200 flex items-center gap-2">{row.label}</div>
               {[0, 1, 2].map((i) => (
                 <div key={i} className="px-4 py-3 flex items-center justify-center">

@@ -1,13 +1,16 @@
 'use client';
 
-import { Form, Input, Checkbox, Button, Alert } from 'antd';
+import { Form, Input, Checkbox, Button, Alert, message } from "antd";
 import { useState } from 'react';
 import AuthCard from '@/views/auth/AuthCard';
 import OAuthButtons from '@/views/auth/OAuthButtons';
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
 type Values = { name: string; email: string; password: string; confirm: string; terms?: boolean };
 
 export default function RegisterPage() {
+  const router = useRouter();
+  const { locale } = useParams<{ locale: string }>();
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
 
@@ -18,17 +21,25 @@ export default function RegisterPage() {
       const { confirm, ...payload } = values;
       const res = await fetch('/api/auth/register', {
         method: 'POST',
-        credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+
+      const data = await res.json().catch(() => ({}));
+
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data?.message || 'Registration failed');
+        const msg = (data?.message as string) || 'Registration failed';
+        setErr(msg);
+        message.error(msg);
+        return;
       }
-      window.location.href = '/';
+
+      message.success('Account created!');
+      router.replace(`/${locale}/auth/profile`);
     } catch (e: any) {
-      setErr(e.message);
+      const msg = e?.message ?? 'Network error';
+      setErr(msg);
+      message.error(msg);
     } finally {
       setLoading(false);
     }

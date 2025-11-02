@@ -66,6 +66,14 @@ body {
     --color-nav-border: #303744;
 }
 
+.only-dark { display: none; }
+
+html.dark .only-dark,
+html[data-theme="dark"] .only-dark,
+:root[data-theme="dark"] .only-dark {
+    display: block;
+}
+
 :root[data-theme="dark"] body { background: var(--color-background); }
 
 html, body, .bg-card, .navbar, .bg-gradient-accent {
