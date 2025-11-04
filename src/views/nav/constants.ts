@@ -23,5 +23,6 @@ export const NAV_LINKS = [
   { href: '/#data-for-ai', label: 'Data for AI' },
   { href: '/#pricing', label: 'Pricing' },
   { href: '/#resources', label: 'Resources' },
-  { href: '/docs', label: 'Docs' } // пример обычного пути
+  { href: '/docs', label: 'Docs' },
+  { href: '/#counter', label: 'Counter'}
 ] as const;

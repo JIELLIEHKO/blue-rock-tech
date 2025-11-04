@@ -6,11 +6,13 @@ import UseCasesSection from "@/app/[locale]/(homepage)/section/UseCasesSection";
 import PricingSection from "@/app/[locale]/(homepage)/section/PricingSection";
 import TestimonialsSection from "@/app/[locale]/(homepage)/section/TestimonialsSection";
 import FAQSection from "@/app/[locale]/(homepage)/section/FAQSection";
+import Counter from "@/app/components/Counter";
 
 export default function Page() {
   return (
     <>
       <HeroSection />
+      <Counter />
       <ServicesGrid />
       <TechStackSection />
       <HowItWorksSection />

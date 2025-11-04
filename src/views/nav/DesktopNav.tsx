@@ -56,7 +56,7 @@ export default function DesktopNav({ langOpen, toggleLang, langRef }: Props) {
     { href: `/${locale}/pricing`, label: t('nav.pricing') },
     { href: `/${locale}/resources`, label: t('nav.resources') },
     { href: `${home}#docs`, label: t('nav.docs') },
-    { href: `${locale}/counter`, lavel: t('nav.counter')}
+    { href: `/${locale}/counter`, label: t('nav.counter') },
   ];
 
   return (
